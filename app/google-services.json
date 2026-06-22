@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "455105633634",
+    "firebase_url": "https://it4735-watersensor-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "it4735-watersensor",
+    "storage_bucket": "it4735-watersensor.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455105633634:android:dddc946568c46e1955a03b",
+        "android_client_info": {
+          "package_name": "com.example.smartgardening"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "455105633634-tc6a0800dsc663g8q20deigthoo8djnh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqyTVS4Eft3Elkwv8XlyGiwtngCjvMe24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "455105633634-tc6a0800dsc663g8q20deigthoo8djnh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

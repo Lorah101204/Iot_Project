@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F9F1">
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_circle_white"
+        android:contentDescription="Quay lại"
+        android:src="@drawable/ic_chevron_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temperature"
+        android:textColor="#1D431F"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnBack" />
+
+    <LinearLayout
+        android:id="@+id/tempDisplayContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/btnBack">
+
+        <FrameLayout
+            android:layout_width="40dp"
+            android:layout_height="200dp"
+            android:layout_marginEnd="32dp">
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_edittext" />
+
+            <ProgressBar
+                android:id="@+id/pbTempColumn"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="12dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:progressDrawable="@drawable/vertical_temp_bar"
+                android:progress="70"
+                android:max="45" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvMainValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--°C"
+                android:textColor="#1D431F"
+                android:textSize="72sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_status_tag"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:text="NORMAL"
+                android:textColor="#2ECC71"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutTempStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@id/tempDisplayContainer">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edittext"
+            android:padding="16dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Min Today" android:textSize="12sp"/>
+            <TextView android:id="@+id/tvMinValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="22°C" android:textStyle="bold" android:textColor="#1D431F" android:textSize="18sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edittext"
+            android:padding="16dp"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Max Today" android:textSize="12sp"/>
+            <TextView android:id="@+id/tvMaxValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="32°C" android:textStyle="bold" android:textColor="#1D431F" android:textSize="18sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="24dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutTempStats">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temperature History"
+                android:textStyle="bold"
+                android:textColor="#1D431F" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/tempChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
