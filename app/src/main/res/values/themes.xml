@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.SmartGardening" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+    <style name="Theme.SmartGardening" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">#FFFFFF</item>
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:textColorPrimary">#000000</item>
+        <item name="android:textColorSecondary">#333333</item>
+        <item name="android:editTextColor">#000000</item>
+        <item name="colorOnBackground">#000000</item>
+        <item name="colorOnSurface">#000000</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorControlNormal">#1D431F</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">#F2F9F1</item>
+    </style>
+
     <style name="CircleImage">
         <item name="cornerSize">50%</item>
     </style>

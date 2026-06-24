@@ -12,16 +12,16 @@ object MqttManager {
     private const val TAG = "MQTT"
 
     // 🔐 THAY BẰNG THÔNG TIN CỦA BẠN
-    private const val HOST = "7882f49ec5a24abc9c49b6c8332f73e4.s1.eu.hivemq.cloud"
+    private const val HOST = "29a054459fb4440ba2312230bca71782.s1.eu.hivemq.cloud"
     private const val PORT = 8883
-    private const val USERNAME = "hayson"
-    private const val PASSWORD = "Alo123,./"
+    private const val USERNAME = "huybui1012"
+    private const val PASSWORD = "Huybui123"
 
     private lateinit var client: Mqtt5AsyncClient
 
     // 🔥 1. Biến chứa hàm Callback (Cầu nối đến Activity)
     // Activity nào đang mở sẽ gán code vào biến này để nhận dữ liệu
-    var onSensorDataReceived: ((temp: Float, humi: Float, soil: Int, water: Int) -> Unit)? = null
+    var onSensorDataReceived: ((temp: Float, humi: Float, soil: Int) -> Unit)? = null
 
     /**
      * Kết nối MQTT

@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvHomeTemp: TextView
     private lateinit var tvHomeHumid: TextView
     private lateinit var tvHomeSoil: TextView
-    private lateinit var tvHomeWater: TextView
     private lateinit var tvHomePumpStatus: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,12 +35,10 @@ class MainActivity : AppCompatActivity() {
         val cardHumid = findViewById<CardView>(R.id.cardHumid)
         val cardMoisture = findViewById<CardView>(R.id.cardMoisture)
         val cardPump = findViewById<CardView>(R.id.cardPump)
-        val cardWater = findViewById<CardView>(R.id.cardWater)
 
         tvHomeTemp = findViewById(R.id.tvHomeTemp)
         tvHomeHumid = findViewById(R.id.tvHomeHumid)
         tvHomeSoil = findViewById(R.id.tvHomeSoil)
-        tvHomeWater = findViewById(R.id.tvHomeWater)
         tvHomePumpStatus = findViewById(R.id.tvHomePumpStatus)
 
         cardTemp.setOnClickListener {
@@ -80,13 +77,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        cardWater.setOnClickListener {
-            val intent = Intent(this, WaterLevelActivity::class.java)
-            val currentWaterText = tvHomeWater.text.toString()
-            val cleanWater = currentWaterText.replace("%", "").trim()
-            intent.putExtra("PASS_WATER_LEVEL", cleanWater)
-            startActivity(intent)
-        }
         startLiveUpdates()
     }
 
@@ -99,21 +89,19 @@ class MainActivity : AppCompatActivity() {
             MqttManager.subscribe("sensor/data") { message ->
                 runOnUiThread {
                     try {
-                        //Parse JSON: {"temp":24.1,"humi":49.0,"soil":36,"water":75, "pumpState":"OFF", ...}
+                        // Parse JSON: {"temp":24.1,"humi":49.0,"soil":36,"pumpState":"OFF", ...}
                         val json = JSONObject(message)
 
                         // Lấy dữ liệu
                         val temp = json.optDouble("temp", 0.0)
                         val humi = json.optDouble("humi", 0.0)
                         val soil = json.optInt("soil", 0)
-                        val water = json.optInt("water", 0)
                         val pumpState = json.optString("pumpState", "OFF")
 
                         // Cập nhật lên màn hình chính
                         tvHomeTemp.text = "${temp}°C"
                         tvHomeHumid.text = "${humi.toInt()}%"  // Humi thường để int cho gọn
                         tvHomeSoil.text = "$soil%"
-                        tvHomeWater.text = "$water%"
                         tvHomePumpStatus.text = pumpState // Hiện ON hoặc OFF
 
                     } catch (e: Exception) {

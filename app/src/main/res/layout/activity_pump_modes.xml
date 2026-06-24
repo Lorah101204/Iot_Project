@@ -21,7 +21,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Quay lại"
+                android:contentDescription="Quay lai"
                 android:src="@drawable/ic_chevron_left"
                 app:tint="#1D431F" />
 
@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Điều khiển máy bơm"
+                android:text="&#272;i&#7873;u khi&#7875;n m&#225;y b&#417;m"
                 android:textColor="#1D431F"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -53,21 +53,21 @@
                     android:id="@+id/togglePumpManual"
                     android:layout_width="120dp"
                     android:layout_height="80dp"
-                    app:cardCornerRadius="40dp"
-                    app:cardBackgroundColor="#989898"
-                    app:strokeWidth="4dp"
-                    app:strokeColor="@android:color/white"
                     android:clickable="true"
-                    android:focusable="true">
+                    android:focusable="true"
+                    app:cardBackgroundColor="#989898"
+                    app:cardCornerRadius="40dp"
+                    app:strokeColor="@android:color/white"
+                    app:strokeWidth="4dp">
 
                     <ImageView
                         android:id="@+id/ivPowerIcon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_marginStart="20dp"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginStart="20dp"
                         android:src="@drawable/ic_power"
-                        android:tint="@android:color/white" />
+                        app:tint="@android:color/white" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -76,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="MÁY BƠM ĐANG TẮT"
+                    android:text="M&#225;y b&#417;m &#273;ang t&#7855;t"
                     android:textColor="#1D431F"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -98,13 +98,15 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Chế độ hẹn giờ"
+                        android:text="Ch&#7871; &#273;&#7897; h&#7865;n gi&#7901;"
                         android:textColor="#1D431F"
-                        android:textStyle="bold"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swScheduleMode"
                         android:layout_width="wrap_content"
@@ -117,16 +119,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                    <!-- Button chọn ngày + giờ -->
                     <Button
                         android:id="@+id/btnSelectDateTime"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="📅 20/01 07:00"
+                        android:text="20/01 07:00"
                         android:textColor="#1D431F" />
 
                     <View
@@ -134,23 +135,24 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
 
-                    <!-- Thời gian bơm -->
                     <EditText
                         android:id="@+id/etDuration"
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_edittext"
                         android:hint="30"
                         android:inputType="number"
+                        android:padding="8dp"
                         android:textAlignment="center"
-                        android:background="@drawable/bg_edittext"
-                        android:padding="8dp"/>
+                        android:textColor="#000000"
+                        android:textColorHint="#7D8C8D" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="giây"
-                        android:textColor="#7D8C8D"/>
+                        android:text="gi&#226;y"
+                        android:textColor="#7D8C8D" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -170,13 +172,15 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Chế độ tự động"
+                        android:text="Ch&#7871; &#273;&#7897; t&#7921; &#273;&#7897;ng"
                         android:textColor="#1D431F"
-                        android:textStyle="bold"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swAutoMode"
                         android:layout_width="wrap_content"
@@ -189,15 +193,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Ngưỡng độ ẩm đất"
-                            android:textSize="14sp"/>
+                            android:text="Ng&#432;&#7905;ng &#273;&#7897; &#7849;m &#273;&#7845;t"
+                            android:textColor="#333333"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:id="@+id/tvThresholdValue"
                             android:layout_width="wrap_content"
@@ -207,6 +215,7 @@
                             android:textColor="#1D431F"
                             android:textStyle="bold" />
                     </RelativeLayout>
+
                     <SeekBar
                         android:id="@+id/sbThreshold"
                         android:layout_width="match_parent"
